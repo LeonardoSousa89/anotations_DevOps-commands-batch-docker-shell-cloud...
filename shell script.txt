@@ -6,6 +6,8 @@ aula 2:
 		export
 		bash
 		ps
+		exit
+		env | less
 				
 
 		teste='teste'					[*valor]
