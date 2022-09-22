@@ -1,0 +1,430 @@
+ repositório do curso: https://github.com/matheusbattisti/curso_docker
+
+link blog docker: https://www.horadecodar.com.br/category/docker/
+
+ubuntu online: https://malisipi.github.io/ubuntu-tour/
+
+GNU/Linux terminal online: https://ubunlog.com/pt/navegador-de-terminais-online-gnulinux/
+
+aws course: https://explore.skillbuilder.aws/learn/catalog
+
+aws: https://aws.amazon.com/console/
+
+laboratório docker online: https://labs.play-with-docker.com/
+
+laboratório do kubernets: https://labs.play-with-k8s.com/
+
+imagens docker: https://hub.docker.com/search?image_filter=official&q=
+
+minha imagem: docker pull leozin89/node_image
+	      docker run -d -p 3003:3003 --name minha_imagem leozin89/node_image
+
+	      docker push leozin89/gccp-backend:tagname
+
+
+
+	      docker build -t leozin89/message . && docker push leozin89/message
+	      docker push leozin89/message
+	      docker run -d -p 3003:3003 --name app leozin89/message
+
+resolução de erros: https://stackoverflow.com/questions/53650492/when-using-copy-with-more-than-one-source-file-the-destination-must-be-a-direct
+
+[comandos-usados-no-curso]						[*parametros]
+	
+									
+			
+docker run docker/whalesay cowsay Hello_World 
+docker run ubuntu
+docker -it run ubuntu
+docker ps
+docker ps -a
+docker container ls
+docker container ls -a
+docker run -it node
+docker run nginx
+docker run -d nginx
+docker run -d -p 80:80 nginx
+docker stop distracted_maxwell						[*name]
+docker stop 7b347f91e9f5 						[*id]
+docker start 36af61f1d574						[*id]
+docker run -d -p 80:80 --name nginx_pp nginx	
+docker logs nginx_app
+docker logs -f 	nginx_app
+docker -rm flamboyant_mccarthy						[*name]
+docker -rm 68d								[*id]
+docker -rm nginx_app -f							[*name]
+
+construindo imagens
+*obs: O build é criado na pasta onde se encontra o Dockerfile, neste exemplo foi a pasta raíz onde geralmente,
+encontramos o index.js, o package.json e outros arquivos de configuração.
+imagem1:
+	Dockerfile:
+
+		FROM node     
+		WORKDIR /app
+		COPY package*.json . 	 
+		RUN npm install
+		COPY . .
+		EXPOSE 3000
+		CMD ["node","app.js"]	 
+
+	docker build .
+	docker run  -d -p 3000:3000 --name meu_node be6e802c3311	[*id-da-imagem-criada-pelo-build]
+
+
+imagem2
+	Dockerfile:
+
+		FROM node:14     
+		WORKDIR /src
+		COPY package*.json . 	 
+		RUN npm install
+		COPY ..
+		EXPOSE 3001
+		CMD ["node","app.js"]	
+
+	docker build .
+
+docker pull python
+docker run --help
+docker images
+docker images --help	
+docker tag bbdf84c33bf3 minhaimagem					[*id]
+docker tag bbdf84c33bf3 minhaimagem:minhatag				[*id]
+docker build -t meunode_diferente .
+docker build -t meunode_diferente:minhatag_diferente .
+docker start -i nervous_haibt						[*name]
+docker rmi 254d4a8a8f31							[*id]
+docker rmi meunode_diferente:minhatag_diferente
+docker system prune --help
+docker system prune
+docker run -d -p 3000:3000 --name node_diferente --rm meunode_diferente [*name]
+docker stop 07c5
+docker cp node_diferente2:/app/app.js ./copia/				
+docker top trusting_stonebreaker					[*name]
+docker inspect node_diferente2
+docker stats
+docker login
+docker logout
+
+imagem(propria) no dockerhub:
+	docker build -t matheusbatisti/nodeteste .			[*usuario]/[rerpositorio-dockerhub]
+	docker push matheusbatisti/nodeteste 				[*usuario]/[rerpositorio-dockerhub]
+	docker pull matheusbatisti/nodeteste 				[*usuario]/[rerpositorio-dockerhub]
+
+	docker build -t matheusbatisti/nodeteste:novaversao .		[*usuario]/[rerpositorio-dockerhub]
+	docker push matheusbatisti/nodeteste:novaversao 		[*usuario]/[rerpositorio-dockerhub]
+
+	docker pull matheusbatisti/nodeteste:novaversao 
+	docker run --name testando_imagem -p 3000:3000 -d matheusbatisti/nodeteste:novaversao 
+
+
+imagem3
+	Dockerfile:
+
+		FROM php:8-apache    
+ 
+		WORKDIR /var/www/html
+ 
+		COPY . .
+
+		EXPOSE 80
+
+		RUN chown -R www-data:www-data /var/www
+	
+	docker build phpmessages .
+
+volumes:
+	anônimo:
+		docker run -d -p 80:80 --name phpmessages_container --rm -v /data phpmessages
+		docker volume ls
+
+	nomeado:
+		docker run -d -p 80:80 --name phpmessages_container -v phpvolume:/var/www/html/messages --rm phpmessages
+		docker volume ls
+		docker inspect phpmessages
+
+	bind mounts:
+		docker run -d -p 80:80 --name phpmessages_container -v H:\20_DOCKER\arquivos\2_volumes\messages:/var/www/html/messages --rm phpmessages
+
+
+
+	docker volume create volumeteste
+	docker volume ls
+	docker run -d -p 80:80 --name phpmessages_container -v volumeteste:/var/www/html/messages --rm phpmessages
+
+
+	docker volume inspect phpvolume
+
+
+	docker volume rm volumeteste
+	docker volume rm 630898e79aa
+	docker volume prune
+
+	
+	docker run -d -p 80:80 --name phpmessages_container -v volumeleitura :/var/www/html:ro --rm phpmessages
+
+	
+
+networks:
+	docker network ls
+	docker network create minharedeteste
+	docker network create -d macvlan meumacvlan
+	docker network rm minharedeteste
+	docker network prune
+	
+	docker network flasknetwork
+	docker run -d -p 3306:3306 --name mysql_api_container --rm --network flasknetwork -e MYSQL_ALLOW_EMPTY_PASSWORD=True mysqlalpinenetwork
+
+	docker network connect flasknetwork 947ac6c40e03			[*id]
+	docker inspect 947a							[*id]
+
+	docker network disconnect flasknetwork 947ac6c40e03			[*id]
+		
+  
+
+        
+#docker-compose.yaml:
+	
+    #versão usada no exemplo
+    version: '3.3' 
+	
+    services:
+	  db: #container de MySql
+	    image: mysql:5.7 #FROM mysql:5.7 
+	    volumes: 
+	      - db_data:/var/lib/mysql #O db_data é o nome do volume e o caminho será indicado no diretório de sistema linux no nivel de partição EX: /home /bin /var /etc                                               
+	    restart: always
+	    environment:
+	      MYSQL_ROOT_PASSWORD: wordpress
+	      MYSQL_DATABASE: wordpress
+	      MYSQL_USER: matheus
+	      MYSQL_PASSWORD: secret
+			  
+	
+	  wordpress:
+	    depends_on:
+	       - db
+        image: wordpress:latest
+        ports:
+           - "8080:80"
+        restart: always
+        environment:
+          WORDPRESS_DB_HOST: db:3306
+          WORDPRESS_DB_USER: matheus 
+          WORDPRESS_DB_PASSWORD: secret
+          WORDPRESS_DB_NAME: wordpress
+    volumes:
+      db_data: {}
+
+
+	
+	
+	docker-compose up
+	docker-compose up -d
+	docker-compose down
+	
+
+
+
+#docker-compose.yaml2:
+	
+    #versão usada no exemplo
+    version: '3.3' 
+	
+    services:
+	  db: #container de MySql
+	    image: mysql:5.7 #FROM mysql:5.7 
+	    volumes: 
+	      - db_data:/var/lib/mysql #O db_data é o nome do volume e o caminho será indicado no diretório de sistema linux no nivel de partição EX: /home /bin /var /etc                                               
+	    restart: always
+	    env_file:
+	      - ./config/db.env
+	
+	  wordpress:
+	    depends_on:
+	       - db
+        image: wordpress:latest
+        ports:
+           - "8080:80"
+        restart: always
+        environment:
+          WORDPRESS_DB_HOST: db:3306
+          WORDPRESS_DB_USER: matheus 
+          WORDPRESS_DB_PASSWORD: secret
+          WORDPRESS_DB_NAME: wordpress
+    volumes:
+      db_data: {}
+
+
+
+#docker-compose.yaml3:
+	
+    #versão usada no exemplo
+    version: '3.3' 
+	
+    services:
+	  db: #container de MySql
+	    image: mysql:5.7 #FROM mysql:5.7 
+	    volumes: 
+	      - db_data:/var/lib/mysql #O db_data é o nome do volume e o caminho será indicado no diretório de sistema linux no nivel de partição EX: /home /bin /var /etc                                               
+	    restart: always
+	    env_file:
+	      - ./config/db.env
+	    networks:
+	      - backend
+	
+	  wordpress:
+	    depends_on:
+	       - db
+            image: wordpress:latest
+            ports:
+             - "8080:80"
+            restart: always
+	    env_file:
+	      - ./config/wp.env
+	    networks:
+	     - backend
+
+    volumes:
+      db_data: {}
+    networks:
+      backend:
+	driver: bridge
+
+
+
+	docker-compose ps
+
+
+DOCKER-SWARM:
+
+	sudo docker info
+	sudo docker swarm init
+	sudo docker swarm init --advertise-addr 192.168.0.23			[ip]
+	sudo docker swarm leave
+	sudo docker swarm leave -f
+	sudo docker node ls
+	sudo docker swarm join --token <token> <ip>: <porta>
+	sudo docker service create --name nginxswarm -p 80:80 nginx		[*name] [*imagem]
+	sudo docker service ls
+	sudo docker service rm nginxswarm					[*name]
+	sudo docker service create --name nginxreplicas --replicas 3 -p 80:80 nginx	[*name] [*qntd-replic] [*imagem]
+	
+	# esse comando se testa no container worker 
+	sudo docker container rm e251 -f					[*id]
+	sudo docker swarm join-token manager
+	sudo docker info	
+	sudo docker swarm leave
+	sudo docker node rm sgsft						[*id]
+	sudo docker node rm sgsft -f						[*id]
+	sudo docker service inspect bpnvr                                       [*id]
+	sudo docker service ps bpnvr						[*id]	
+	sudo docker stack deploy -c docker-compose.yaml nginx_swarm		[*arquivo] [*name]
+	sudo docker service scale nginx_swarm_web=3				[*qntd-replic][*name] 
+	sudo docker node update --availability drain ojkqs			[*id]
+	sudo docker service update --image nginx:1.18.0	pdq			[*image] [*service]
+	sudo docker node update --availability active ojkqs			[*id]
+	sudo docker network create --driver overlay swarm
+	sudo docker service update --network-add swarm pkjpk			[*network] [*name] [*id]
+		
+	
+
+	# token de exemplo da minha máquina no labs
+	# você insere esta chave em todas as instancias do docker que se pretende gerenciar.
+	docker swarm join --token SWMTKN-1-4579nqev7z2w5en4e7bcpusgd6vufw07tpnu2dghk9cos0aj7w-biwwltoimng5476yc8ywf6q0z 192.168.0.18:2377
+
+
+KUBERNETS:
+	
+
+	minikube start --driver=docker					[*driver-installed]
+	minikube status
+	minikube stop
+	minikube dashboard
+	minikube dashboard --url
+
+	kubectl create deployment flask-deployment --image=matheusbattisti/flask-kub-projeto	[*image] [*name]
+	kubectl get deployments
+	kubectl describe deployments
+
+	kubectl get pods
+	kubectl describe pods
+
+	kubectl config view
+
+	kubectl expose deployment flask-deployment --type=LoadBalancer --port=5000   [* **name] [*type] [*port] [**deve ser exatamente o mesmo mome do deployment]
+
+	minikube service flask-deployment			[*name]
+
+	
+	kubectl get services
+	kubectl describe services/flask-deployment		[*name]	
+
+	kubectl scale deployment/flask-deployment --replicas=3  [*name]	[*qntd-replic]
+
+	kubectl get rs
+	
+	#scale down
+	kubectl scale deployment/flask-deployment --replicas=2 [*name] [*qntd-replic]
+
+	kubectl set image deployment/flask-deployment flask-kub-projeto=matheusbattisti/flask-kub-projeto:2  [*name] [*image]
+
+	kubectl rollout status deployment/flask-deployment     [*name]	
+
+	kubectl  delete service flask-deployment 	       [*name]
+	kubectl  delete deployment flask-deployment	       [*name]	
+ 
+
+	arquivo declarativo KUBERNETS:
+		
+		* deve sempre ser um arquivo.yaml
+			
+		flask.yaml:
+			apiVersion: apps/v1
+			kind: Deployment
+			metadata:
+  			  name: flask-app-depoyment
+			spec:
+  			  replicas: 4
+  			  selector:
+    			     matchLabels:
+      			       app: flask-app
+  			  template:
+    			       metadata:
+      			          labels:
+        		             app: flask-app
+    			  spec:
+      			    containers:
+        			- name: flask
+          			image: matheusbattisti/flask-kub-projeto:5
+
+
+	kubectl apply -f flask.yaml			[*filename]
+	kubectl delete -f flask.yaml			[*filename]
+
+		flask-service.yaml:
+		apiVersion: v1
+		kind: Service
+		metadata:
+  		   name: flask-service
+		spec:
+  		  selector:
+    		    app: flask-app
+  		ports:
+    		  - protocol: 'TCP'
+      		  port: 5000
+      		  targetPort: 5000
+  		type: LoadBalancer
+
+	kubectl apply -f flask.yaml			[*filename]
+	minikube service flask-service			[*name]
+
+atalhos do link: https://labs.play-with-docker.com/
+
+	ctrl + insert (copia)
+	ctrl + shift + v (cola)
+
+
+
+

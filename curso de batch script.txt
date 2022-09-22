@@ -1,0 +1,28 @@
+https://drive.google.com/drive/folders/0B3W9K_qrXM_RT2FMazJ5TEl1Tk0?resourcekey=0-iTiLa76VK31cH2eKSjWGaQ
+
+aula 1: 
+COMANDOS UTILIZADOS:
+*CLS      *Date
+*Echo    *Time
+*Vol       *Start
+*Ver        *Winver
+*Clip      *Exit
+
+*Title     *Mode
+*Color   *Prompt
+
+
+aula 2:
+COMANDOS UTILIZADOS:
+*CD (chdir)
+*Attrib
+*Dir 
+*Copy
+*Replace
+*Move
+*Path
+*Attrib
+*MD (mkdir)
+*Del (erase)
+*Rename (ren)
+*RD (rmdir)

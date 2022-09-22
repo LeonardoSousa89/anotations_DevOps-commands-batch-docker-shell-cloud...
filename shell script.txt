@@ -1,0 +1,15 @@
+aula 2:
+
+	comandos:						[*parametros]
+		env 
+		printenv
+		export
+		bash
+		ps
+				
+
+		teste='teste'					[*valor]
+		echo $teste
+		export teste
+		unset teste
+		echo $SECONDS					[*variavel-de-ambiente]

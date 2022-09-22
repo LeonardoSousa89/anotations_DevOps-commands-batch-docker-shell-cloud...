@@ -1,0 +1,176 @@
+https://www.cloudskillsboost.google/catalog_lab/1281?qlcampaign=4p-EDUCR-GCCFSALVADOR-JUL22-34
+
+https://www.cloudskillsboost.google/subscriptions?locale=pt_BR (assinatura - mensal)
+
+*TÁ NA MÃO ??*
+
+*Links individuais de cada módulo disponível* 
+
+link módulo 1: https://www.cloudskillsboost.google/course_templates/177	 [curso 1]
+
+link módulo 2: https://www.cloudskillsboost.google/course_templates/182  [curso 2]
+
+link módulo 3: https://www.cloudskillsboost.google/course_templates/188  [curso 3]
+
+link módulo 4: https://www.cloudskillsboost.google/course_templates/189  [curso 4] faltam somente 1 laboratórios
+
+https://cloud.google.com/products/calculator?hl=pt-br (calculadora de preço dos serviços do google cloud)
+
+extras:
+https://cloud.google.com/appengine/docs/legacy/standard/python/getting-started/hosting-a-static-website
+https://cloud.google.com/appengine/docs/legacy/standard/python/config/appref
+
+
+revisão1
+configurando o projeto:
+	gcloud config set project [id-do-projeto]
+	EX: gcloud config set project qwiklabs-gcp-03-47d7c6c1ecc7
+
+verificando zonas e regiões:
+	gcloud compute regions list
+	gcloud compute zones list
+
+configurando ambiente global (zona/região):
+	gcloud config set compute/region  [region]
+	EX:gcloud config set compute/region  us-central1
+	
+	gcloud config set compute/zone  [zone]
+	EX:gcloud config set compute/zone  us-central1-a [c]
+
+verificando ambiente global (zona/região):
+	gcloud config get-value compute/region
+	gcloud config get-value compute/zone
+
+criando máquina no gcloud shell:
+	gcloud compute instances create [instance-name]  --machine-type [compute] --zone [zone]
+	EX:gcloud compute instances create gccp-review1  --machine-type e2-medium --zone us-central1-a
+
+conectando máquina no gcloud shell(usando protocolo SSH):
+        gcloud compute ssh [instance-name] --zone [zone]
+ 	EX:gcloud compute ssh gccp-review1 --zone us-central1-a
+
+listando as máquinas:
+	gcloud compute instances list
+
+variaveis de ambiente id e zona:
+  	OBS* já é obtido automáticamente a partir destes valores configurados. [c]
+
+	export [apelido-id-do-projeto]=$(gcloud config get-value project)
+	EX:export PROJECT_ID=$(gcloud config get-value project)
+	
+	export [apelido-zona]=$(gcloud config get-value compute/zone)
+	EX:export ZONE=$(gcloud config get-value compute/zone)
+
+	export [apelido-regional]=$(gcloud config get-value compute/region)
+	EX:export REGION=$(gcloud config get-value compute/region)
+
+verificando as variáveis idDoProjeto e zona:
+	echo -e "PROJECT ID: $PROJECT_ID\nZONE: $ZONE"
+	echo -e "PROJECT ID: $PROJECT_ID\nZONE && \nREGION: $ZONE && \n$REGION"
+
+ app usado em testes:
+	comandos:
+ 		git clone https://github.com/LeonardoSousa89/client-app-simple.git 
+		
+			ou
+		
+		git clone https://github.com/LeonardoSousa89/spring-app.gccp.git
+		ls
+		cd client-app-simple
+
+			ou
+
+		cd spring-app.gccp
+		cd java-demo
+
+			ou
+		git clone https://github.com/LeonardoSousa89/fullStack-simple-gccp.git
+		
+			ou
+		git clone https://github.com/LeonardoSousa89/gccp-back-heroku-fast.git
+		
+		executando arquivo:
+			caminhando para a pasta do arquivo executável:
+				[caminho-do-diretorio]$ chmod a+x [arquivo.extensao]
+				EX: usuario$ chmod a+x ./machine.sh 
+				[caminho-do-arquivo] ou sudo [caminho-do-arquivo]
+				EX: usuario$ ./machine.sh 
+				EX: usuario$ sudo ./machine.sh 
+	       copiando arquivo:
+			        [caminho-do-diretorio]$ cp [caminho-do-arquivo-a-ser-copiado.extensao] [caminho-do-diretorio-de-destino] 
+				EX: usuario$ cp ./machine/machine.sh  ./machine2/app 
+	
+	opção de leitura: https://guialinux.uniriotec.br/chmod/		
+
+	app.yaml:
+		runtime: nodejs16 
+
+OBS* Antes do deploy corrigir pelo editor nano as URLS do css e js, no arquivo index.html,
+devem apontar para os mesmos no heroku.
+
+link: https://client-app-simple.herokuapp.com
+link: http://localhost:8081 (applicação para demonstração ao fianl do curs)
+
+	
+
+my function code:
+	index.js:
+		const functions = require('@google-cloud/functions-framework');
+		const escapeHtml = require('escape-html');
+
+		/**
+ 		* Responds to an HTTP request using data from the request body parsed according
+ 		* to the "content-type" header.
+ 		*
+ 		* @param {Object} req Cloud Function request context.
+ 		* @param {Object} res Cloud Function response context.
+ 		*/
+		functions.http('helloHttp', (req, res) => {
+  		res.send(`Hello ${escapeHtml(req.query.name || req.body.name || 'World')}!`);
+		});
+
+meu ambiente de exercicio cloud functions:
+	criando bucket no cloud storage:
+		gsutil mb -p [PROJECT_ID] gs://[BUCKET_NAME]
+		EX:gsutil mb -p $PROJECT_ID gs://app-gccp
+
+meu bucket:
+	EX:
+	gcloud functions deploy app-gccp\
+  	--stage-bucket app-gccp \
+  	--trigger-topic app-gccp \
+  	--runtime nodejs16 
+
+instalando servidor nginx:
+	sudo apt update
+	[sudo apt install nginx] ou [sudo apt-get install nginx]
+
+instalando servidor apache:
+	sudo apt update
+	[sudo apt install apache2] ou [sudo apt-get install apache2]
+
+** este é o diretório do index.html do nginx **
+
+caso você esteja no diretório do usuário:
+	cd ..
+	cd ..
+	cd var/www/html/index.nginx-debian.html
+
+doc:	
+	https://www.nginx.com/welcome-to-nginx/
+	http://nginx.org/
+	http://nginx.org/en/docs/
+	https://www.digitalocean.com/community/tutorials/how-to-install-linux-apache-mysql-php-lamp-stack-on-ubuntu-20-04-pt
+
+
+
+/* este comando cria uma máquina nomeada, e2-medium, 10 gb, permitindo trafego http e demais requisitos para a máquina básica */
+	/* o código foi copiado do console na área de criação da VM no serviço do compute engine:´EQUIVALENT COMMAND LINE´ */
+	/* pontuei o que já estou familiarizado */
+	gcloud compute instances create [nome-da-maquina] --project=[id-do-projeto] --zone=[zona] --machine-type=[tipo-de-máquina] --network-interface=network-tier=PREMIUM,subnet=default --metadata=enable-oslogin=true --maintenance-policy=MIGRATE --provisioning-model=STANDARD --service-account=750786574768-compute@developer.gserviceaccount.com --scopes=https://www.googleapis.com/auth/devstorage.read_only,https://www.googleapis.com/auth/logging.write,https://www.googleapis.com/auth/monitoring.write,https://www.googleapis.com/auth/servicecontrol,https://www.googleapis.com/auth/service.management.readonly,https://www.googleapis.com/auth/trace.append --tags=http-server --create-disk=auto-delete=yes,boot=yes,device-name=lamp-instance,image=projects/debian-cloud/global/images/debian-11-bullseye-v20220822,mode=rw,size=10,type=projects/qwiklabs-gcp-01-62ceee5b3174/zones/us-east1-c/diskTypes/pd-balanced --no-shielded-secure-boot --shielded-vtpm --shielded-integrity-monitoring --reservation-affinity=any
+	gcloud compute instances create lamp-instance --project=qwiklabs-gcp-01-62ceee5b3174 --zone=us-east1-c --machine-type=e2-medium --network-interface=network-tier=PREMIUM,subnet=default --metadata=enable-oslogin=true --maintenance-policy=MIGRATE --provisioning-model=STANDARD --service-account=750786574768-compute@developer.gserviceaccount.com --scopes=https://www.googleapis.com/auth/devstorage.read_only,https://www.googleapis.com/auth/logging.write,https://www.googleapis.com/auth/monitoring.write,https://www.googleapis.com/auth/servicecontrol,https://www.googleapis.com/auth/service.management.readonly,https://www.googleapis.com/auth/trace.append --tags=http-server --create-disk=auto-delete=yes,boot=yes,device-name=lamp-instance,image=projects/debian-cloud/global/images/debian-11-bullseye-v20220822,mode=rw,size=10,type=projects/qwiklabs-gcp-01-62ceee5b3174/zones/us-east1-c/diskTypes/pd-balanced --no-shielded-secure-boot --shielded-vtpm --shielded-integrity-monitoring --reservation-affinity=any
+
+
+ comando utilizado no projeto gccp-front na pasta root, para fazer as devidas alterações.
+ CMD:
+ mkdir public && cp index.css ./public && cp index.js ./public  && touch index.js && npm init -y && touch .gitignore && npm i express  nodemon && touch .dockerfile && touch .dockeignore
