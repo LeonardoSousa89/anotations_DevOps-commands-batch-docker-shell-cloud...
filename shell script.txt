@@ -8,6 +8,9 @@ aula 2:
 		ps
 		exit
 		env | less
+		alias
+		typeset -f | less
+		ls -a
 				
 
 		teste='teste'					[*valor]
@@ -15,3 +18,25 @@ aula 2:
 		export teste
 		unset teste
 		echo $SECONDS					[*variavel-de-ambiente]
+		testearray=(laranja morango acerola cebola)	[*elemento]
+		echo ${testearray[1]}				[*indíce]
+		echo ${testearray[*]}
+		testearray[2]=banana				[*indíce][*elemento]
+		unset testearray[2]
+		unset testearray[*]
+		alias mo='more'					[*nome_do_alias][*elemento]
+		alias lshome='cd /home; ls'			[*nome_do_alias][*elemento]
+		alias lsl='ls-l'				[*nome_do_alias][*elemento]
+		unalias nome_alias				[*nome_do_alias]
+		nome_funcao(){comandos}				[*nome_funcao][*elemento]
+							
+		palavras(){					
+		 cd /home/fabio			
+		 echo 'linha acrescentada'>> teste_func		[*funcao]	
+		}
+
+		palavras
+		
+		
+
+
