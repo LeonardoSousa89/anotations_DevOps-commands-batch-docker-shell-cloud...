@@ -1,0 +1,77 @@
+
+CURSOS:	
+
+coursera: https://www.coursera.org/professional-certificates/gcp-cloud-architect
+
+edx: https://www.edx.org/?g_acctid=724-505-4034&g_campaign=gs-b2c-tier1geo-brand-core&g_campaignid=15244257492&g_adgroupid=131204365633&g_adid=561276463081&g_keyword=edx&g_keywordid=kwd-89882436&g_network=g&utm_source=google&utm_campaign=gs-b2c-tier1geo-brand-core&utm_medium=cpc&utm_term=edx&hsa_acc=7245054034&hsa_cam=15244257492&hsa_grp=131204365633&hsa_ad=561276463081&hsa_src=g&hsa_tgt=kwd-89882436&hsa_kw=edx&hsa_mt=e&hsa_net=adwords&hsa_ver=3&gclid=Cj0KCQjwsrWZBhC4ARIsAGGUJup3qAhFxM27biAE3Nt41uPbbPcp-1h1sHlqMXLeQBpyXLKAVxwGC3saAkZhEALw_wcB
+
+
+
+batch script: https://www.youtube.com/watch?v=wru9jNgBvaI&list=PLO_mlVzHgDw02tItMApdR4MOpZB37162D
+
+shell script: https://www.youtube.com/watch?v=EOLPUc6oo-w&list=PLucm8g_ezqNrYgjXC8_CgbvHbvI7dDfhs
+
+firebase: https://www.youtube.com/watch?v=uP_v6RhnP5U&list=PLHlHvK2lnJnccBL9grcoRxv8CsLa9Q_4q&index=1
+
+sass: https://www.youtube.com/watch?v=fvBILePvdK4&list=PL97KElaimHeGRtfkksKwxg6IGVZi_cR7J&index=8
+
+git:	 https://www.youtube.com/watch?v=_Why5uCCrXc&list=PLlAbYrWSYTiNqugqFFWWsgONJsmc3eMpg
+
+netlify: https://www.youtube.com/watch?v=a1cIjP1bueM&list=PLlAbYrWSYTiMGMxQf9JSoZUU1rgVpGPth
+
+typescript: https://www.youtube.com/watch?v=mRixno_uE2o&list=PLlAbYrWSYTiPanrzauGa7vMuve7_vnXG_
+
+jest:	 https://www.youtube.com/watch?v=lPAe1N0GsFM&list=PLIddmSRJEJ0s3cxl5RIbDcthFc7yUzGTW
+
+cypress: https://www.youtube.com/watch?v=fNcFvZv1YmY&list=PLnUo-Rbc3jjyYmS9M3MiweoQfjc0hZnDh
+	 https://www.youtube.com/watch?v=gTRMuWCp8mE&list=PLnUo-Rbc3jjyx5BVnG8MB7vNd5ecu2yP1
+	 https://www.youtube.com/watch?v=mfZfhp6Ql8c&t=77s
+
+knex: https://www.youtube.com/watch?v=vTpyaestqxw&list=PLJ_KhUnlXUPumHjILbUWY_cskafhR_kXu
+
+servidores web: https://www.youtube.com/watch?v=TX1rWg8y9Xw&list=PLQ1o0rYO0QWtJzasUzysBjfL5g3ebsUn6
+
+servidor linux: https://www.youtube.com/watch?v=feNUoTK7CLE&list=PLbEOwbQR9lqy926a_ArLcUL2gHJYuu8XK&index=7
+
+aws: https://www.youtube.com/watch?v=YNDKx-qFRmE&list=PLWMAkZq0y_ZMQyoztoxwwD3QBsyNbZKL9
+
+algoritmos avançados:
+	https://www.youtube.com/watch?v=-SVyEGyMLyg&t=30s
+	https://www.youtube.com/watch?v=nsBKV9TKTRo
+
+
+engenharia da computação UNIVESP: https://www.youtube.com/user/univesptv/playlists?view=50&sort=dd&shelf_id=3
+
+
+
+
+FERRAMENTAS:
+
+kali-linux: http://old.kali.org/kali-images/kali-2017.1/
+
+ubuntu online: https://malisipi.github.io/ubuntu-tour/
+
+GNU/Linux terminal online: https://ubunlog.com/pt/navegador-de-terminais-online-gnulinux/
+
+aws course: https://explore.skillbuilder.aws/learn/catalog
+
+aws: https://aws.amazon.com/console/
+
+laboratório docker online: https://labs.play-with-docker.com/
+
+laboratório do kubernets: https://labs.play-with-k8s.com/
+
+exame: https://cloud.google.com/certification/cloud-architect?hl=pt_br
+
+apigee: https://apigee.google.com/welcome?pli=1
+
+https://quickdraw.withgoogle.com/
+playground.tensorflow.org
+
+node: https://nodejs.reativa.dev/0017-where-npm-install-packages/index
+      https://blog.betrybe.com/desenvolvimento-web/lodash-o-que-e-como-usar/
+
+paiza: https://paiza.io/projects/O1AkoVp15digOLZDs0Vxgg?language=mysql
+       https://paiza.io/en
+	
+
