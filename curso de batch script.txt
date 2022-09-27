@@ -26,3 +26,82 @@ COMANDOS UTILIZADOS:
 *Del (erase)
 *Rename (ren)
 *RD (rmdir)
+
+
+aula 4.2:
+COMANDOS UTILIZADOS:
+*set
+*echo
+*color
+*mode
+*title
+*cls
+*pause
+
+SCRIPT:
+
+@echo off
+
+echo calculo simples
+
+set /a adi=2+2
+set /a sub=2-2
+set /a mul=2*2
+set /a div=2/2
+set /a mod=2%2
+
+echo 2+2 = %adi%
+echo 2-2 = %sub%
+echo 2*2 = %mul%
+echo 2/2 = %div%
+echo 2%%2 = %mod%
+
+echo calculo composto
+
+() 	      		- agrupamento
+* / % + -     		- operadores aritméticos
+<< >>	      		- alternância lógica
+= *= /= %= += -=	- atribuição
+,			- operador de expressões
+
+
+f7 [histórico do prompt]
+
+pause nul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
