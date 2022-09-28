@@ -23,7 +23,7 @@ typescript: https://www.youtube.com/watch?v=mRixno_uE2o&list=PLlAbYrWSYTiPanrzau
 
 jest:	 https://www.youtube.com/watch?v=lPAe1N0GsFM&list=PLIddmSRJEJ0s3cxl5RIbDcthFc7yUzGTW
 
-cypress: https://www.youtube.com/watch?v=fNcFvZv1YmY&list=PLnUo-Rbc3jjyYmS9M3MiweoQfjc0hZnDh
+cypress: https://www.youtube.com/watch?v=fNcFvZv1YmY&list=PLnUo-Rbc3jjyYmS9M3MiweoQfjc0hZnDh (curso atual)
 	 https://www.youtube.com/watch?v=gTRMuWCp8mE&list=PLnUo-Rbc3jjyx5BVnG8MB7vNd5ecu2yP1
 	 https://www.youtube.com/watch?v=mfZfhp6Ql8c&t=77s
 

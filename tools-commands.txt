@@ -7,6 +7,7 @@ node:
 
 Cypress:
 	npx cypress open
+	npx cypress run
 
 React:
 	npm i -g react
