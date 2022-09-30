@@ -39,4 +39,49 @@ aula 2:
 		
 		
 
+		script1:
+			cd; ls -l
+		
+		script2:
+			meuscript.sh
+				#!/bin/bash
+				# Este é meu primeiro script
+				cd/
+				ls -l
+		
+		permissões do script:
+			chmod a+x meuscript.sh
+
+		execução no diretório atual do bash/terminal:
+			./ meuscript.sh
+		
+		script2.1:
+			meuscript.sh
+				#!/bin/bash
+				# Este é meu primeiro script
+				cd/
+				ls -l
+				echo "Esta foi a listagem de arquivos e diretórios dentro da raiz"
+
+		script2.2:
+			meuscript.sh
+				#!/bin/bash
+				# Este é meu primeiro script
+				cd/
+				ls -l
+				echo "Esta foi a listagem de arquivos e diretórios dentro da raiz"
+				echo -n "O usuário logado no momento é"
+				whoami
+
+		
+		
+
+
+
+
+
+
+
+
+
 
