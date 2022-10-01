@@ -47,3 +47,14 @@ typescript:
 	
 	npm i -g typescript
 	npx tsc
+
+pm2:
+	npm i -g pm2
+	pm2 start [arquivo.js]
+	pm2 start [arquivo.js] --watch
+	pm2 stop  [arquivo.js]
+	pm2 status
+	pm2 start [arquivo.js] --name [nome-do-processo]
+	pm2 ls
+	pm2 restart [nome-do-processo]
+	pm2 delete  [nome-do-processo]
