@@ -58,3 +58,5 @@ pm2:
 	pm2 ls
 	pm2 restart [nome-do-processo]
 	pm2 delete  [nome-do-processo]
+	pm2 monitor
+	pm2 monit
