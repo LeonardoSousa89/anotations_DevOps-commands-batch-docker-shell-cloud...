@@ -6,6 +6,7 @@ coursera: https://www.coursera.org/professional-certificates/gcp-cloud-architect
 edx: https://www.edx.org/?g_acctid=724-505-4034&g_campaign=gs-b2c-tier1geo-brand-core&g_campaignid=15244257492&g_adgroupid=131204365633&g_adid=561276463081&g_keyword=edx&g_keywordid=kwd-89882436&g_network=g&utm_source=google&utm_campaign=gs-b2c-tier1geo-brand-core&utm_medium=cpc&utm_term=edx&hsa_acc=7245054034&hsa_cam=15244257492&hsa_grp=131204365633&hsa_ad=561276463081&hsa_src=g&hsa_tgt=kwd-89882436&hsa_kw=edx&hsa_mt=e&hsa_net=adwords&hsa_ver=3&gclid=Cj0KCQjwsrWZBhC4ARIsAGGUJup3qAhFxM27biAE3Nt41uPbbPcp-1h1sHlqMXLeQBpyXLKAVxwGC3saAkZhEALw_wcB
 
 
+webpack: https://www.youtube.com/playlist?list=PLL0TiOXBeDag4uKXT_m5t65AR_rD0VBhA
 
 batch script: https://www.youtube.com/watch?v=wru9jNgBvaI&list=PLO_mlVzHgDw02tItMApdR4MOpZB37162D
 
@@ -23,8 +24,8 @@ typescript: https://www.youtube.com/watch?v=mRixno_uE2o&list=PLlAbYrWSYTiPanrzau
 
 jest:	 https://www.youtube.com/watch?v=lPAe1N0GsFM&list=PLIddmSRJEJ0s3cxl5RIbDcthFc7yUzGTW
 
-cypress: https://www.youtube.com/watch?v=fNcFvZv1YmY&list=PLnUo-Rbc3jjyYmS9M3MiweoQfjc0hZnDh (curso atual)
-	 https://www.youtube.com/watch?v=gTRMuWCp8mE&list=PLnUo-Rbc3jjyx5BVnG8MB7vNd5ecu2yP1
+cypress: https://www.youtube.com/watch?v=fNcFvZv1YmY&list=PLnUo-Rbc3jjyYmS9M3MiweoQfjc0hZnDh 
+	 https://www.youtube.com/watch?v=gTRMuWCp8mE&list=PLnUo-Rbc3jjyx5BVnG8MB7vNd5ecu2yP1 (curso atual)
 	 https://www.youtube.com/watch?v=mfZfhp6Ql8c&t=77s
 
 knex: https://www.youtube.com/watch?v=vTpyaestqxw&list=PLJ_KhUnlXUPumHjILbUWY_cskafhR_kXu

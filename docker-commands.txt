@@ -339,6 +339,7 @@ KUBERNETS:
 	
 
 	minikube start --driver=docker					[*driver-installed]
+	minikube start --driver=docker --extra-config=kubeadm.ignore-preflight-errors=NumCPU --force --cpus=1
 	minikube status
 	minikube stop
 	minikube dashboard
