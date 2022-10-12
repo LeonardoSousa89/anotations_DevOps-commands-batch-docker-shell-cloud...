@@ -8,7 +8,18 @@ node:
 Cypress:
 	npx cypress open
 	npx cypress run
-	 
+
+	com allure instalado e configurado:
+		npx cypress run --env allure=true
+
+		allure generate <directory-with-results>
+		allure generate <directory-with-results> -o <directory-with-report>
+		allure open <directory-with-report>
+
+
+	verões antigas:
+		npx cypress run --config video=false --env allure=true
+		
 
 React:
 	npm i -g react
