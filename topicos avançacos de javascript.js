@@ -346,7 +346,142 @@ function addPessoa(){
   );
 }
 console.log('______________________________________________________________________________________________________________________________')
+import React, { useEffect, useState } from "react";
+import "./styles.css";
 
+export default function App() {
+  const [pessoa, setPessoa] = useState([
+    'Bruce Wayne',
+    'Bruce Banner',
+    'Matthew Michael Murdock',
+    'Peter Parker',
+    'Dick Greyson',
+    'Billy Maddox',
+    'Berry Allen'
+  ]);
+  const [input,  setInput]  = useState('');
+
+  useEffect(()=>{
+
+  },[pessoa])
+
+function addPessoa(){
+    setPessoa([...pessoa, input])
+    setInput('')
+  }
+
+ function removerTudo(){
+    for(let i=0;i<=pessoa.length;i++){
+      let remove=pessoa.splice(0,pessoa[i])
+      setPessoa(remove)
+    }
+ }
+
+function deletar(eId){
+    pessoa.splice(pessoa[eId],1)
+    console.log(pessoa)
+}
+
+  return (
+    <>
+      <input
+        placeholder="escreva..."
+        value={input}
+        onChange={(e) => {setInput(e.target.value)}}
+      />
+
+    <button style={{cursor: 'pointer'}} onClick={addPessoa}>enviar</button>
+    <button style={{cursor: 'pointer'}}onClick={removerTudo}>apagar</button>
+
+      <br />
+      <hr />
+    
+    <ul>{pessoa.map((e, eId)=>{return(
+           <li key={eId}>
+            {e} {<button style={{cursor: 'pointer'}} onClick={()=>{deletar(eId)}}>deletar</button>}
+           </li>
+    )})}</ul>
+    </>
+  );
+}
+}
+console.log('______________________________________________________________________________________________________________________________')
+{/*mudar este*/}
+
+import React, { useEffect, useState } from "react";
+import "./styles.css";
+
+export default function App() {
+  const [pessoa, setPessoa] = useState([
+    'Bruce Wayne',
+    'Bruce Banner',
+    'Matthew Michael Murdock',
+    'Peter Parker',
+    'Dick Greyson',
+    'Billy Maddox',
+    'Berry Allen'
+  ]);
+  const [input,  setInput]  = useState('');
+
+  useEffect(()=>{
+
+  },[pessoa])
+
+function addPessoa(){
+    setPessoa([...pessoa, input])
+    setInput('')
+  }
+
+ function removerTudo(){
+    for(let i=0;i<=pessoa.length;i++){
+      let remove=pessoa.splice(0,pessoa[i])
+      setPessoa(remove)
+    }
+ }
+
+function deletar(eId){
+    pessoa.splice(pessoa[eId],1)
+    addPessoa()
+}
+
+  return (
+    <>
+      <input
+        placeholder="escreva..."
+        value={input}
+        onChange={(e) => {setInput(e.target.value)}}
+      />
+
+    <button onClick={addPessoa}>enviar</button>
+    <button onClick={removerTudo}>apagar</button>
+
+      <br />
+      <hr />
+    
+    <ul>{pessoa.map((e, eId)=>{return(
+           <li style={{listStyle:'none'}} key={eId}>
+            {  e ? 
+                <div>
+                  {e} 
+                  {<button 
+                      style={{cursor: 'pointer'}} 
+                      onClick={()=>{deletar(eId)}}>
+                        deletar
+                    </button>
+                  } 
+                </div> 
+                : 
+                <div></div>
+                }
+           </li>
+    )})}</ul>
+    </>
+  );
+}
+
+{/*mudar este*/}
+
+console.log('______________________________________________________________________________________________________________________________')
 import React, { useEffect, useState } from "react";
 import "./styles.css";
 
