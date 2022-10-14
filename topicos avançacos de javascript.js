@@ -440,6 +440,7 @@ function addPessoa(){
  }
 
 function deletar(eId){
+	console.log(eId);
     pessoa.splice(pessoa[eId],1)
     addPessoa()
 }
