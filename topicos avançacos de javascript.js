@@ -111,3 +111,297 @@ getSalario(salarioBruto, (resultado) => {
 });
 
 console.log('______________________________________________________________________________________________________________________________')
+
+'React-HOOKS'
+
+import React, { useEffect, useState } from "react";
+import "./styles.css";
+
+export default function App() {
+  const [pessoa, setPessoa] = useState([]);
+
+  useEffect(()=>{
+    console.log(pessoa)
+  },[pessoa])
+
+  return (
+    <>
+      <input
+        placeholder="escreva..."
+        value={this.pessoa}
+        onChange={(e) => {setPessoa(e.target.value)}}
+      />
+    </>
+  );
+}
+
+
+console.log('______________________________________________________________________________________________________________________________')
+
+import React, { useEffect, useState } from "react";
+import "./styles.css";
+
+export default function App() {
+  const [pessoa, setPessoa] = useState([]);
+
+  useEffect(()=>{
+    
+  },[pessoa])
+
+  return (
+    <>
+      <input
+        placeholder="escreva..."
+        value={this.pessoa}
+        onChange={(e) => {setPessoa(e.target.value)}}
+      />
+
+      <br />
+      <hr />
+
+      <span>{pessoa}</span>
+    </>
+  );
+}
+
+
+console.log('______________________________________________________________________________________________________________________________')
+import React, { useEffect, useState } from "react";
+import "./styles.css";
+
+export default function App() {
+  const [pessoa, setPessoa] = useState([]);
+  const [input,  setInput]  = useState('');
+
+  useEffect(()=>{
+
+  },[pessoa])
+
+function addPessoa(){
+  setPessoa([...pessoa, input])
+  setInput('')
+  console.log(pessoa)
+}
+
+  return (
+    <>
+      <input
+        placeholder="escreva..."
+        value={input}
+        onChange={(e) => {setInput(e.target.value)}}
+      />
+
+    <button onClick={addPessoa}>enviar</button>
+
+      <br />
+      <hr />
+
+    </>
+  );
+}
+
+console.log('______________________________________________________________________________________________________________________________')
+
+import React, { useEffect, useState } from "react";
+import "./styles.css";
+
+export default function App() {
+  const [pessoa, setPessoa] = useState([]);
+  const [input,  setInput]  = useState('');
+
+  useEffect(()=>{
+
+  },[pessoa])
+
+function addPessoa(){
+  setPessoa([...pessoa, input])
+  setInput('')
+}
+
+  return (
+    <>
+      <input
+        placeholder="escreva..."
+        value={input}
+        onChange={(e) => {setInput(e.target.value)}}
+      />
+
+    <button onClick={addPessoa}>enviar</button>
+
+      <br />
+      <hr />
+    
+    <ul>{pessoa.map(e=>{return(
+          <li key={e}>{e}</li>
+    )})}</ul>
+    </>
+  );
+}
+console.log('______________________________________________________________________________________________________________________________')
+
+import React, { useEffect, useState } from "react";
+import "./styles.css";
+
+export default function App() {
+  const [pessoa, setPessoa] = useState([
+    'Bruce Wayne',
+    'Bruce Banner',
+    'Matthew Michael Murdock',
+    'Peter Parker',
+    'Dick Greyson',
+    'Billy Maddox',
+    'Berry Allen'
+  ]);
+  const [input,  setInput]  = useState('');
+
+  useEffect(()=>{
+
+  },[pessoa])
+
+function addPessoa(){
+    setPessoa([...pessoa, input])
+    setInput('')
+  }
+
+  return (
+    <>
+      <input
+        placeholder="escreva..."
+        value={input}
+        onChange={(e) => {setInput(e.target.value)}}
+      />
+
+    <button onClick={addPessoa}>enviar</button>
+
+      <br />
+      <hr />
+    
+    <ul>{pessoa.map(e=>{return(
+          // o elemento encontrado recebe valor da posição inicial da sua letra ou número 
+          <li key={e}>
+            {/* {e.toLowerCase().indexOf('bruce')} */}
+            {/* {e.toLowerCase().indexOf('b')} */}
+            {/* {e.toLowerCase().indexOf('br')} */}
+            {/* {e.toLowerCase().indexOf('wayne')} */}
+            {/* {e.toLowerCase().indexOf(' michael murdock')} */}
+            {e.toLowerCase().indexOf('dick greyson')}
+          </li>
+    )})}</ul>
+    </>
+  );
+}
+
+console.log('______________________________________________________________________________________________________________________________')
+import React, { useEffect, useState } from "react";
+import "./styles.css";
+
+export default function App() {
+  const [pessoa, setPessoa] = useState([
+    'Bruce Wayne',
+    'Bruce Banner',
+    'Matthew Michael Murdock',
+    'Peter Parker',
+    'Dick Greyson',
+    'Billy Maddox',
+    'Berry Allen'
+  ]);
+  const [input,  setInput]  = useState('');
+
+  useEffect(()=>{
+
+  },[pessoa])
+
+function addPessoa(){
+    setPessoa([...pessoa, input])
+    setInput('')
+  }
+
+ function removerTudo(){
+    for(let i=0;i<=pessoa.length;i++){
+      let remove=pessoa.splice(0,pessoa[i])
+      setPessoa(remove)
+    }
+ }
+
+  return (
+    <>
+      <input
+        placeholder="escreva..."
+        value={input}
+        onChange={(e) => {setInput(e.target.value)}}
+      />
+
+    <button onClick={addPessoa}>enviar</button>
+    <button onClick={removerTudo}>apagar</button>
+
+      <br />
+      <hr />
+    
+    <ul>{pessoa.map(e=>{return(
+           <li key={e}>
+            {e}
+           </li>
+    )})}</ul>
+    </>
+  );
+}
+console.log('______________________________________________________________________________________________________________________________')
+
+import React, { useEffect, useState } from "react";
+import "./styles.css";
+
+export default function App() {
+
+  const URL='https://api.adviceslip.com/advice'
+
+  const [msg, setMsg]=useState([]) 
+
+  useEffect(()=>{
+       carregarMsg() 
+  },[])
+
+  async function carregarMsg(){
+    await fetch(URL,{method:'GET'})
+              .then(r=>r.json())
+              .then(r=>{
+                 setMsg(r)
+				 console.log(msg)
+              })
+  }
+
+ 
+
+  return (
+    <>
+     
+    </>
+  );
+}
+
+console.log('______________________________________________________________________________________________________________________________')
+
+import React, { useEffect, useState } from "react";
+import "./styles.css";
+
+export default function App() {
+  const URL = "https://api.adviceslip.com/advice";
+
+  const [msgId, setMsgId] = useState([]);
+
+  useEffect(() => {
+    carregarMsg();
+  }, []);
+
+  async function carregarMsg() {
+    await fetch(URL, { method: "GET" })
+      .then((r) => r.json())
+      .then(r=>setMsgId(r))
+  }
+
+  return (
+    <>
+      <h2>{msgId.slip.id}</h2>
+      <h2>{msgId.slip.advice}</h2>
+    </>
+  );
+}
