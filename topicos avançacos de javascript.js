@@ -452,8 +452,8 @@ function deletar(eId){
         onChange={(e) => {setInput(e.target.value)}}
       />
 
-    <button onClick={addPessoa}>enviar</button>
-    <button onClick={removerTudo}>apagar</button>
+    <button   style={{cursor: 'pointer'}}  onClick={addPessoa}>enviar</button>
+    <button   style={{cursor: 'pointer'}} onClick={removerTudo}>apagar</button>
 
       <br />
       <hr />
@@ -462,7 +462,8 @@ function deletar(eId){
            <li style={{listStyle:'none'}} key={eId}>
             {  e ? 
                 <div>
-                  {e} 
+                  {eId} -
+                  {e}  
                   {<button 
                       style={{cursor: 'pointer'}} 
                       onClick={()=>{deletar(eId)}}>
