@@ -72,3 +72,8 @@ pm2:
 	pm2 delete  [nome-do-processo]
 	pm2 monitor
 	pm2 monit
+
+
+netlify:
+	netlify deploy
+	netlify deploy --prod
