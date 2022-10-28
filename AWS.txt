@@ -23,6 +23,7 @@ instalação do APACHE2 no EC2:
 
 	combo1: sudo apt update && sudo apt-get install apache2 -y && cd ../../ && cd var/www && sudo chmod -R 777 html
 	combo1: sudo apt update && sudo apt install nodejs -y && sudo apt install npm -y  && node -v && sudo apt-get install git
+	combo3:	sudo apt update && curl -sL https://deb.nodesource.com/setup_14.x | sudo bash - && sudo apt -y install nodejs && sudo apt install npm -y && sudo apt-get install git &&  node  -v
 
 	reference EXAMPLE: https://www.youtube.com/watch?v=u-o7cqzK6u8
 	GIT repository:	   https://github.com/johnpapa/node-hello
