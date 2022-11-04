@@ -333,7 +333,7 @@ DOCKER-SWARM:
 
 	# token de exemplo da minha máquina no labs
 	# você insere esta chave em todas as instancias do docker que se pretende gerenciar.
-	EX: docker swarm join --token SWMTKN-1-4579nqev7z2w5en4e7bcpusgd6vufw07tpnu2dghk9cos0aj7w-biwwltoimng5476yc8ywf6q0z 192.168.0.18:2377
+	EX: sudo docker swarm join --token SWMTKN-1-2bfz0pi7vgquhjfrlw381wg93duj0adchgvu315edyl0r14b1l-144cm31roh2rrtdb44j4priy6 172.31.16.11:2377
 
 
 DOCKER AND DOCKER SWARM ON AWS:
@@ -398,8 +398,9 @@ DOCKER AND DOCKER SWARM ON AWS:
 			sudo apt update && apt-cache policy docker-ce &&  sudo apt install docker-ce -y && 
 			sudo systemctl status docker 
 
-		 sudo docker swarm join --token [swarm-token]
-	
+		 sudo docker swarm join --token [swarm-token]	
+		
+		 (os exemplos sempre serão a última instância do docker swarm adicionada, para poder ser utilizadas nos workers)
 		 EX:  sudo docker swarm join --token SWMTKN-1-33yio8v9207h1x72jam9gor17xghr3husbhefrcf0ywrxknxbb-euhxvohxmujx295icllkh8gkq 172.31.16.11:2377
 
 		outros comandos vá para a área acima: DOCKER-SWARM > # estes comandos se testam nos containers workers 
