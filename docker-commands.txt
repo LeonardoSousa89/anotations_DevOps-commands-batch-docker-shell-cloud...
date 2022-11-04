@@ -311,28 +311,100 @@ DOCKER-SWARM:
 	sudo docker service rm nginxswarm					[*name]
 	sudo docker service create --name nginxreplicas --replicas 3 -p 80:80 nginx	[*name] [*qntd-replic] [*imagem]
 	
-	# esse comando se testa no container worker 
-	sudo docker container rm e251 -f					[*id]
-	sudo docker swarm join-token manager
-	sudo docker info	
-	sudo docker swarm leave
-	sudo docker node rm sgsft						[*id]
-	sudo docker node rm sgsft -f						[*id]
-	sudo docker service inspect bpnvr                                       [*id]
-	sudo docker service ps bpnvr						[*id]	
-	sudo docker stack deploy -c docker-compose.yaml nginx_swarm		[*arquivo] [*name]
-	sudo docker service scale nginx_swarm_web=3				[*qntd-replic][*name] 
-	sudo docker node update --availability drain ojkqs			[*id]
-	sudo docker service update --image nginx:1.18.0	pdq			[*image] [*service]
-	sudo docker node update --availability active ojkqs			[*id]
-	sudo docker network create --driver overlay swarm
-	sudo docker service update --network-add swarm pkjpk			[*network] [*name] [*id]
+	# estes comandos se testam nos containers workers 
+
+		sudo docker container rm e251 -f					[*id]
+		sudo docker swarm join-token manager
+		sudo docker info	
+		sudo docker swarm leave
+		sudo docker node rm sgsft						[*id]
+		sudo docker node rm sgsft -f						[*id]
+		sudo docker service inspect bpnvr                                       [*id]
+		sudo docker service ps bpnvr						[*id]	
+		sudo docker stack deploy -c docker-compose.yaml nginx_swarm		[*arquivo] [*name]
+		sudo docker service scale nginx_swarm_web=3				[*qntd-replic][*name] 
+		sudo docker node update --availability drain ojkqs			[*id]
+		sudo docker service update --image nginx:1.18.0	pdq			[*image] [*service]
+		sudo docker node update --availability active ojkqs			[*id]
+		sudo docker network create --driver overlay swarm
+		sudo docker service update --network-add swarm pkjpk			[*network] [*name] [*id]
 		
 	
 
 	# token de exemplo da minha máquina no labs
 	# você insere esta chave em todas as instancias do docker que se pretende gerenciar.
-	docker swarm join --token SWMTKN-1-4579nqev7z2w5en4e7bcpusgd6vufw07tpnu2dghk9cos0aj7w-biwwltoimng5476yc8ywf6q0z 192.168.0.18:2377
+	EX: docker swarm join --token SWMTKN-1-4579nqev7z2w5en4e7bcpusgd6vufw07tpnu2dghk9cos0aj7w-biwwltoimng5476yc8ywf6q0z 192.168.0.18:2377
+
+
+DOCKER AND DOCKER SWARM ON AWS:
+	
+	MODE1:
+		OLD RELEASE:
+			sudo yum update -y
+			sudo yum install docker 
+			sudo service docker start
+			sudo usermod -a -G docker-ec2-user
+			sudo docker info 
+			sudo  docker swarm init
+	
+	MODE2:
+		REF: https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-20-04-pt
+
+		sudo apt update -y
+		sudo apt install apt-transport-https ca-certificates curl software-properties-common
+		curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+		sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu focal stable"
+		sudo apt update
+		apt-cache policy docker-ce
+		sudo apt install docker-ce
+		sudo systemctl status docker
+		
+		SEM O COMANDO SUDO:
+		sudo usermod -aG docker ${USER} OU sudo usermod -aG docker username
+		id -nG
+	
+
+
+	=================================================================================================================================================================
+	machine ec2 docker swarm:
+		
+		[OLD RELEASE]
+		combo: sudo yum update -y && sudo yum install docker  && sudo service docker start && sudo usermod -a -G docker-ec2-user && sudo  docker swarm init
+		
+		[NO USERMOD]
+		combo: sudo apt update -y && sudo apt install apt-transport-https ca-certificates curl software-properties-common -y && 
+			curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add - && 
+			sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu focal stable" && 
+			sudo apt update &&a pt-cache policy docker-ce && sudo apt install docker-ce -y && sudo systemctl status docker && sudo docker swarm init
+		
+		combo: sudo apt update -y && sudo apt install apt-transport-https ca-certificates curl software-properties-common -y && 
+			curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add - && 
+			sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu focal stable" && 
+			sudo apt update && apt-cache policy docker-ce &&  sudo apt install docker-ce -y && 
+			sudo systemctl status docker && sudo usermod -aG docker ubuntu && id -nG && sudo  docker swarm init
+
+		outros comandos vá para a área acima: DOCKER-SWARM
+
+		sudo docker swarm leave	
+		sudo docker swarm leave	-f
+
+
+	machine ec2 NODE:
+		
+		[NO USERMOD]
+		 combo: sudo apt update -y && sudo apt install apt-transport-https ca-certificates curl software-properties-common -y && 
+			curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add - && 
+			sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu focal stable" && 
+			sudo apt update && apt-cache policy docker-ce &&  sudo apt install docker-ce -y && 
+			sudo systemctl status docker 
+
+		 sudo docker swarm join --token [swarm-token]
+	
+		 EX:  sudo docker swarm join --token SWMTKN-1-33yio8v9207h1x72jam9gor17xghr3husbhefrcf0ywrxknxbb-euhxvohxmujx295icllkh8gkq 172.31.16.11:2377
+
+		outros comandos vá para a área acima: DOCKER-SWARM > # estes comandos se testam nos containers workers 
+	=================================================================================================================================================================
+
 
 
 KUBERNETS:
@@ -425,6 +497,11 @@ atalhos do link: https://labs.play-with-docker.com/
 
 	ctrl + insert (copia)
 	ctrl + shift + v (cola)
+
+
+
+
+
 
 
 
