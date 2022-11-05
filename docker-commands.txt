@@ -53,6 +53,9 @@ docker logs -f 	nginx_app
 docker -rm flamboyant_mccarthy						[*name]
 docker -rm 68d								[*id]
 docker -rm nginx_app -f							[*name]
+docker rm flamboyant_mccarthy						[*name]
+docker rm 68d								[*id]
+docker rm nginx_app -f							[*name]
 
 construindo imagens
 *obs: O build é criado na pasta onde se encontra o Dockerfile, neste exemplo foi a pasta raíz onde geralmente,
@@ -498,6 +501,24 @@ atalhos do link: https://labs.play-with-docker.com/
 
 	ctrl + insert (copia)
 	ctrl + shift + v (cola)
+
+
+DB:
+	EXEMPLO:
+		docker network create distnetwork
+		docker network ls
+
+		docker pull postgres:12-alpine
+
+		docker run  -p 5432:5432 --name distprojectdb1 --network distnetwork -e POSTGRES_PASSWORD=1234 -e POSTGRES_DB=DIST postgres:12-alpine
+		
+		docker run  -p 5432:5432 --name distprojectdb1 --network distnetwork -e POSTGRES_PASSWORD=1234 -e POSTGRES_DB=DIST postgres
+		
+		ERRO AO CRIAR SERVER DE COMUNICAÇÃO ENTRE CONTAINER POSTGRES E O PG-ADMIN:
+			https://stackoverflow.com/questions/72264710/invalid-length-of-startup-packet-docker-postgressql	
+
+		//(EVITE USAR ESTE MÉTODO) usar somente em testes
+		docker run  -p 5432:5432 --name distprojectdb3 --network distnetwork -e POSTGRES_HOST_AUTH_METHOD=trust  -e POSTGRES_DB=DIST postgres:12-alpine
 
 
 

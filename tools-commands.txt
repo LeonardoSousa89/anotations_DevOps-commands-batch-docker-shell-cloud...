@@ -1,3 +1,8 @@
+linux:
+	sudo rm -rf [nome-do-diretório]
+
+dos/batch:
+
 node:
 	npm init -y
 	npm start
@@ -77,3 +82,23 @@ pm2:
 netlify:
 	netlify deploy
 	netlify deploy --prod
+
+maven:
+	obs* deve estar na raíz do projeto, no nível do POM.xml
+
+	 mvnw* comando para encapsulamento de arquivos do MAVEN
+
+	./mvnw clean package (build de projeto java [equivalent a npm run build])
+
+	./mvnw dependecy:tree
+	./mvnw dependency:copy-dependencies
+	./mvnw compile
+	./mvnw test
+	./mvnw package 
+	./mvnw clean 
+	history | grep mvn 
+	./mvnw clean install
+	./mvnw deploy
+	./mvnw  install
+
+	
