@@ -375,10 +375,10 @@ DOCKER AND DOCKER SWARM ON AWS:
 		combo: sudo yum update -y && sudo yum install docker  && sudo service docker start && sudo usermod -a -G docker-ec2-user && sudo  docker swarm init
 		
 		[NO USERMOD]
-		combo: sudo apt update -y && sudo apt install apt-transport-https ca-certificates curl software-properties-common -y && 
+		combo:  sudo apt update -y && sudo apt install git && sudo apt install apt-transport-https ca-certificates curl software-properties-common -y && 
 			curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add - && 
 			sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu focal stable" && 
-			sudo apt update &&a pt-cache policy docker-ce && sudo apt install docker-ce -y && sudo systemctl status docker && sudo docker swarm init
+			sudo apt update && apt-cache policy docker-ce && sudo apt install docker-ce -y && sudo systemctl status docker && sudo docker swarm init
 		
 		combo: sudo apt update -y && sudo apt install apt-transport-https ca-certificates curl software-properties-common -y && 
 			curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add - && 
@@ -404,7 +404,7 @@ DOCKER AND DOCKER SWARM ON AWS:
 		 sudo docker swarm join --token [swarm-token]	
 		
 		 (os exemplos sempre serão a última instância do docker swarm adicionada, para poder ser utilizadas nos workers)
-		 EX:  sudo docker swarm join --token SWMTKN-1-33yio8v9207h1x72jam9gor17xghr3husbhefrcf0ywrxknxbb-euhxvohxmujx295icllkh8gkq 172.31.16.11:2377
+		 EX:  sudo docker swarm join --token SWMTKN-1-160pb74ysk8yeupqxszjqccku369vqomsa6cvaiwd8zlh4j92w-20k1falzicnlbblwn4cut3fox 172.31.93.113:2377
 
 		outros comandos vá para a área acima: DOCKER-SWARM > # estes comandos se testam nos containers workers 
 	=================================================================================================================================================================
