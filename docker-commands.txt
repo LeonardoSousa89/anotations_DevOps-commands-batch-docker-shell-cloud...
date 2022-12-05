@@ -378,7 +378,7 @@ DOCKER AND DOCKER SWARM ON AWS:
 		combo:  sudo apt update -y && sudo apt install git && sudo apt install apt-transport-https ca-certificates curl software-properties-common -y && 
 			curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add - && 
 			sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu focal stable" && 
-			sudo apt update && apt-cache policy docker-ce && sudo apt install docker-ce -y 
+			sudo apt update && apt-cache policy docker-ce && sudo apt install docker-ce -y && clear
 
 		[NO USERMOD-WITH-INIT]
 		combo:  sudo apt update -y && sudo apt install git && sudo apt install apt-transport-https ca-certificates curl software-properties-common -y && 
@@ -529,6 +529,11 @@ DB:
 
 
 
+combo de rede:
+	EX:
+		sudo docker network create --driver bridge --subnet=192.169.100.0/8 --gateway=192.169.100.1 distnetwork && 
+		sudo docker run -d --name dstproject-api-gateway --network distnetwork --ip 192.169.100.4  -p 8765:8765 leozin89/dstproject-api-gateway:v5 &&
+		sudo docker run -d --name dstproject-application --network distnetwork --ip 192.169.100.5  -p 8762:8762 -e DB=jdbc:postgresql://dist.c6vumhpkhe4g.us-east-1.rds.amazonaws.com:5432/distproject -e USER_DB=postgres -e PASSWORD_DB=12345678 leozin89/dstproject-application:v5
 
 
 
