@@ -117,6 +117,8 @@ expo:
 	
 	npm i eas-cli
 	
+	eas --help
+	
 	eas build -p android
 	
 		
