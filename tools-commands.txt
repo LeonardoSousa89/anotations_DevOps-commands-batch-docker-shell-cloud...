@@ -100,5 +100,23 @@ maven:
 	./mvnw clean install
 	./mvnw deploy
 	./mvnw  install
-
 	
+expo: 
+	**use os comandos no CMD caso dê erro no git bash
+	
+	** usar os comandos expo-cli em projetos @expo abaixo de 40.0, eles são obsoletos, serão descontinuados
+	e possuem muitos bugs
+	
+	npm i -g expo-cli
+	
+	expo --help
+	
+	
+	
+	usar estes
+	
+	npm i eas-cli
+	
+	eas build -p android
+	
+		
