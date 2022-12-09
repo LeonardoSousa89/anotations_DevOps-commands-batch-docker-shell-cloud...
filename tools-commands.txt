@@ -111,6 +111,13 @@ expo:
 	
 	expo --help
 	
+	expo login -u YOUR-USERNAME-OR-EMAIL -p YOUR-PASSWORD
+	
+	npm start
+	expo start
+	expo start --clear
+	expo build:android
+	
 	
 	
 	usar estes
@@ -118,7 +125,78 @@ expo:
 	npm i eas-cli
 	
 	eas --help
-	
 	eas build -p android
+
+bundletool[programa em jar]:
+	DOC: https://developer.android.com/studio/command-line/bundletool?hl=pt-br
 	
+	**na pasta do arquivo jar e do arquivo .aab, sempre precedido da flag: java -jar <arquivo.jar> <comando>
+
+	build-bundle command:
+		Builds an Android App Bundle from a set of Bundle modules provided as zip files.
+
+	build-apks command:
+		Generates an APK Set archive containing either all possible split APKs and
+		standalone APKs or APKs optimized for the connected device (see connected-
+		device flag).
+
+	build-sdk-bundle command:
+		Builds an Android SDK Bundle from a set of Bundle modules provided as zip
+		files.
+
+	build-sdk-apks command:
+		Generates APKs from an Android SDK Bundle.
+
+	build-sdk-asar command:
+		Generates an ASAR from an Android SDK Bundle.
+
+	print-device-targeting-config command:
+		Prints a device targeting configuration JSON file in a human-readable
+		format.
+
+	evaluate-device-targeting-config command:
+		Evaluates which groups and tier a specific device would fall into, in a
+		provided device targeting config or a connected device.
+
+	extract-apks command:
+		Extracts from an APK Set the APKs that should be installed on a given
+		device.
+
+	get-device-spec command:
+		Writes out a JSON file containing the device specifications (i.e. features
+		and properties) of the connected Android device.
+
+	install-apks command:
+		Installs APKs extracted from an APK Set to a connected device. Replaces
+		already installed package.
+
+	install-multi-apks command:
+		Atomically install APKs and APEXs from multiple APK Sets to a connected
+		device.
+
+	validate command:
+		Verifies the given Android App Bundle is valid and prints out information
+		about it.
+
+	dump command:
+		Prints files or extract values from the bundle in a human-readable form.
+
+	get-size command:
+		Computes the min and max download sizes of APKs served to different devices
+		configurations from an APK Set.
+
+	version command:
+		Prints the version of BundleTool.
+	
+	gerar conjunto de apks a partir de um .aab:
+		EX:
+		java -jar bundletool.jar build-apks --bundle=DIST.aab --output=DIST.apks 
+		
+		EX:
+		java -jar bundletool.jar build-apks --bundle=DIST.aab --output=C:\Users\somen\OneDrive\Desktop\DIST\mobile-APP\apk\app\DIST.apks  --ks=C:\Users\somen\OneDrive\Desktop\DIST\mobile-APP\apk\credentials\@leodev89__logistic-app-dist-keystore.bak.jks --ks-pass=pass:ed3e38c6fa9440bdac7ba01eed221f64 --ks-key-alias=QGxlb2Rldjg5L2xvZ2lzdGljLWFwcC1kaXN0 --key-pass=pass:db2abcf4d811456f84bd448ece39fa49
+		
+		java -jar bundletool.jar build-apks --device-spec=spec.json --bundle=DIST.aab --output=DIST.apks  --ks=C:\Users\somen\OneDrive\Desktop\DIST\mobile-APP\apk\credentials\@leodev89__logistic-app-dist-keystore.bak.jks --ks-pass=pass:ed3e38c6fa9440bdac7ba01eed221f64 --ks-key-alias=QGxlb2Rldjg5L2xvZ2lzdGljLWFwcC1kaXN0 --key-pass=pass:db2abcf4d811456f84bd448ece39fa49
+					
+	extraindo apks especificos:
+		java -jar bundletool.jar extract-apks --apks=C:\Users\somen\OneDrive\Desktop\DIST\mobile-APP\apk\app\DIST.apks --output-dir=C:\Users\somen\OneDrive\Desktop\DIST\mobile-APP\apk\app\DIST-apks --device-spec=C:\Users\somen\OneDrive\Desktop\DIST\mobile-APP\apk\app\spec.json
 		
