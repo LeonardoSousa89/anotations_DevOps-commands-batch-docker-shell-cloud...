@@ -129,6 +129,7 @@ expo:
 
 bundletool[programa em jar]:
 	DOC: https://developer.android.com/studio/command-line/bundletool?hl=pt-br
+	link: https://crast.net/29455/how-to-convert-aab-file-to-apk/
 	
 	**na pasta do arquivo jar e do arquivo .aab, sempre precedido da flag: java -jar <arquivo.jar> <comando>
 
@@ -190,13 +191,18 @@ bundletool[programa em jar]:
 	
 	gerar conjunto de apks a partir de um .aab:
 		EX:
-		java -jar bundletool.jar build-apks --bundle=DIST.aab --output=DIST.apks 
+			java -jar bundletool.jar build-apks --bundle=DIST.aab --output=DIST.apks 
 		
 		EX:
-		java -jar bundletool.jar build-apks --bundle=DIST.aab --output=C:\Users\somen\OneDrive\Desktop\DIST\mobile-APP\apk\app\DIST.apks  --ks=C:\Users\somen\OneDrive\Desktop\DIST\mobile-APP\apk\credentials\@leodev89__logistic-app-dist-keystore.bak.jks --ks-pass=pass:ed3e38c6fa9440bdac7ba01eed221f64 --ks-key-alias=QGxlb2Rldjg5L2xvZ2lzdGljLWFwcC1kaXN0 --key-pass=pass:db2abcf4d811456f84bd448ece39fa49
+			java -jar bundletool.jar build-apks --bundle=DIST.aab --output=C:\Users\somen\OneDrive\Desktop\DIST\mobile-APP\apk\app\DIST.apks  --ks=C:\Users\somen\OneDrive\Desktop\DIST\mobile-APP\apk\credentials\@leodev89__logistic-app-dist-keystore.bak.jks --ks-pass=pass:ed3e38c6fa9440bdac7ba01eed221f64 --ks-key-alias=QGxlb2Rldjg5L2xvZ2lzdGljLWFwcC1kaXN0 --key-pass=pass:db2abcf4d811456f84bd448ece39fa49
 		
-		java -jar bundletool.jar build-apks --device-spec=spec.json --bundle=DIST.aab --output=DIST.apks  --ks=C:\Users\somen\OneDrive\Desktop\DIST\mobile-APP\apk\credentials\@leodev89__logistic-app-dist-keystore.bak.jks --ks-pass=pass:ed3e38c6fa9440bdac7ba01eed221f64 --ks-key-alias=QGxlb2Rldjg5L2xvZ2lzdGljLWFwcC1kaXN0 --key-pass=pass:db2abcf4d811456f84bd448ece39fa49
+		EX:
+			**deve-se criar um arquivo de especificação(EX: spec.json) semelhante ao que há na documentação oficial
+			java -jar bundletool.jar build-apks --device-spec=spec.json --bundle=DIST.aab --output=DIST.apks  --ks=C:\Users\somen\OneDrive\Desktop\DIST\mobile-APP\apk\credentials\@leodev89__logistic-app-dist-keystore.bak.jks --ks-pass=pass:ed3e38c6fa9440bdac7ba01eed221f64 --ks-key-alias=QGxlb2Rldjg5L2xvZ2lzdGljLWFwcC1kaXN0 --key-pass=pass:db2abcf4d811456f84bd448ece39fa49
 					
-	extraindo apks especificos:
-		java -jar bundletool.jar extract-apks --apks=C:\Users\somen\OneDrive\Desktop\DIST\mobile-APP\apk\app\DIST.apks --output-dir=C:\Users\somen\OneDrive\Desktop\DIST\mobile-APP\apk\app\DIST-apks --device-spec=C:\Users\somen\OneDrive\Desktop\DIST\mobile-APP\apk\app\spec.json
-		
+		EX:
+			**utilize este modo para testes de aplicativos universais [default]
+			java -jar bundletool.jar build-apks --bundle=DIST.aab --output=C:\Users\somen\OneDrive\Desktop\DIST\mobile-APP\apk\apks\DIST.apks  --ks=C:\Users\somen\OneDrive\Desktop\DIST\mobile-APP\apk\credentials\@leodev89__logistic-app-dist-keystore.bak.jks --ks-pass=pass:ed3e38c6fa9440bdac7ba01eed221f64 --ks-key-alias=QGxlb2Rldjg5L2xvZ2lzdGljLWFwcC1kaXN0 --key-pass=pass:db2abcf4d811456f84bd448ece39fa49  -–mode=universal
+			
+		extração:
+			renomeie o arquivo .apks para .zip e extraia o(s) .apk
