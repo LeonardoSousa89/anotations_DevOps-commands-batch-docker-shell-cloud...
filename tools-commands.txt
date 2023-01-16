@@ -118,8 +118,6 @@ expo:
 	expo start --clear
 	expo build:android
 	
-	
-	
 	usar estes
 	
 	npm i eas-cli

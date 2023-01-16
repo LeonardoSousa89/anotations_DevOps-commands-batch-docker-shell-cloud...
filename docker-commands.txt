@@ -374,14 +374,27 @@ DOCKER AND DOCKER SWARM ON AWS:
 		[OLD RELEASE]
 		combo: sudo yum update -y && sudo yum install docker  && sudo service docker start && sudo usermod -a -G docker-ec2-user && sudo  docker swarm init
 		
+		[instalações: git, node.js, jenkins, jdk11, npm, docker, docker-compose][**mais usado | constantemente atualizado] 
 		[NO USERMOD]
-		combo:  sudo apt update -y && sudo apt install git && sudo apt install apt-transport-https ca-certificates curl software-properties-common -y && 
+		combo:  sudo apt update -y && sudo apt install git && 
+			sudo apt install apt-transport-https ca-certificates curl software-properties-common -y && 
 			curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add - && 
 			sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu focal stable" && 
-			sudo apt update && apt-cache policy docker-ce && sudo apt install docker-ce -y && clear
+			sudo apt update && apt-cache policy docker-ce && sudo apt install docker-ce -y &&
+			sudo curl -L "https://github.com/docker/compose/releases/download/1.26.0/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose && 
+			sudo chmod +x /usr/local/bin/docker-compose && 
+			sudo apt update && 
+			sudo apt install nodejs && 
+			sudo apt install npm &&
+			sudo apt update && sudo apt install default-jre &&
+			sudo apt install default-jdk &&
+			wget -q -O - https://pkg.jenkins.io/debian-stable/jenkins.io.key | sudo apt-key add - &&
+			sudo sh -c 'echo deb http://pkg.jenkins.io/debian-stable binary/ > /etc/apt/sources.list.d/jenkins.list' &&
+			sudo apt update && sudo apt install jenkins && clear
 
 		[NO USERMOD-WITH-INIT]
-		combo:  sudo apt update -y && sudo apt install git && sudo apt install apt-transport-https ca-certificates curl software-properties-common -y && 
+		combo: sudo apt update -y && sudo apt install git && 
+			sudo apt install apt-transport-https ca-certificates curl software-properties-common -y && 
 			curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add - && 
 			sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu focal stable" && 
 			sudo apt update && apt-cache policy docker-ce && sudo apt install docker-ce -y && sudo systemctl status docker && sudo docker swarm init
