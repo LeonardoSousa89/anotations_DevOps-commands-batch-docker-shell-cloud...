@@ -1,0 +1,18 @@
+					=====redes linux=====
+
+ifconfig
+
+cat /etc/sysconfig/network-scripts/
+
+
+cat /etc/sysconfig/network-scripts/ifcfg-lo
+
+						      -- novo arquivo de configuração de rede --							
+sudo cp cat /etc/sysconfig/network-scripts/ifcfg-lo /etc/sysconfig/network-scripts/ifcfg-enp0s8 [nome**]
+
+sudo vi /etc/sysconfig/network-scripts/ifcfg-enp0s8 ou
+sudo nano /etc/sysconfig/network-scripts/ifcfg-enp0s8
+
+[então configura-se os novos dados de rede no script]
+
+service network restart
