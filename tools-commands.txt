@@ -29,6 +29,9 @@ Cypress:
 React:
 	npm i -g react
 	npx create-react-app [nome-do-app]
+	npx create-react-app [nome-do-app] --template typescript
+	
+	[o sass você usa da forma padrão a usual em projetos com javascript, html e css puros]
 
 Vue:
 	npm i -g @vue/cli
