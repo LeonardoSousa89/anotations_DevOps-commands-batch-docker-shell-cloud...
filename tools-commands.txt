@@ -41,7 +41,14 @@ Angular:
 	npm i -g @angular/cli
 	ng n [nome-do-app]
 	
+	**com sass
 	ng n [nome-do-app] --style=scss
+	
+	**com gestão de rotas
+	ng n [nome-do-app] --routing --defaults
+	
+	**com sass e gestão de rotas[instalação padrão]
+	ng n [nome-do-app] --routing --defaults --style=scss
 	
 	ng s
 
