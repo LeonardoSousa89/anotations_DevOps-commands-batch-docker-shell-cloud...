@@ -38,6 +38,8 @@ Angular:
 	npm i -g @angular/cli
 	ng n [nome-do-app]
 	
+	ng n [nome-do-app] --style=scss
+	
 	ng s
 
 	ng g c [nome-do-componente]
