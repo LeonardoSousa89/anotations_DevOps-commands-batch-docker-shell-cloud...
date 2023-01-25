@@ -1,0 +1,214 @@
+dependencia para implementação de cache:
+
+<dependency>
+	<groupId>org.springframework.boot</groupId>
+	<artifactId>spring-boot-starter-cache</artifactId>
+</dependency>
+
+
+
+na classe main, habilitar o cache com a anotation:
+
+@EnableCaching
+
+
+use a anotation abaixo no class controller*-*
+no(s) metodo(s) que se quer permitir uso deste recurso, adiciona esta anotation:
+
+@cacheable("obrigatorio_inserir_nome_do_cache_aqui")
+
+
+para testar 
+Thread.currentThread().sleep(3000);
+
+ou
+
+
+Thread.sleep (3000)
+
+
+
+
+ex:
+
+
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>2.3.4.RELEASE</version>
+		<relativePath /> <!-- lookup parent from repository -->
+	</parent>
+	
+	<groupId>com.moda.loja</groupId>
+	<artifactId>tendencia</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>tendencia</name>
+	<description>Demo project for Spring Boot</description>
+	
+	<properties>
+		<java.version>11</java.version>
+	</properties>
+
+	<dependencies>
+	
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-jpa</artifactId>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.postgresql</groupId>
+			<artifactId>postgresql</artifactId>
+			<scope>runtime</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>com.h2database</groupId>
+			<artifactId>h2</artifactId>
+			<scope>runtime</scope>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-cache</artifactId>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+			<exclusions>
+				<exclusion>
+					<groupId>org.junit.vintage</groupId>
+					<artifactId>junit-vintage-engine</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-actuator</artifactId>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+		</plugins>
+	</build>
+
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>org.springframework.cloud</groupId>
+				<artifactId>spring-cloud-dependencies</artifactId>
+				<version>Hoxton.SR8</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+	
+</project>
+
+=====================================================================================================================
+
+
+package com.moda.loja.tendencia;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cache.annotation.EnableCaching;
+
+@SpringBootApplication
+@EnableCaching
+public class TendenciaApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(TendenciaApplication.class, args);
+	}
+
+}
+
+
+=====================================================================================================================
+
+
+package com.moda.loja.tendencia.controller;
+
+import javax.websocket.server.PathParam;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.scheduling.annotation.Scheduled;
+import org.springframework.scheduling.annotation.Schedules;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.moda.loja.tendencia.entities.Pecas;
+import com.moda.loja.tendencia.services.PecasService;
+
+@RestController
+@RequestMapping(value = "/loja")
+public class PecasController {
+
+	
+	@Autowired
+	private PecasService service;
+	
+	
+	@GetMapping(value = "/itens")
+	@Cacheable("itens")
+	public ResponseEntity<Page<Pecas>> getItens(
+			@RequestParam(value = "page",  required = false,  defaultValue = "0") int page, 
+			@RequestParam(value = "size",  required = false, defaultValue = "6") int size
+			) throws InterruptedException{
+		
+		//teste para verificação de funcionamento do cache
+		Thread.sleep(3000);
+		
+		PageRequest pageRequest = PageRequest.of(page, size);
+		Page<Pecas> pecas = service.getItens(pageRequest);
+		return ResponseEntity.status(HttpStatus.OK).body(pecas);
+		
+	}
+	
+	
+	@GetMapping(value = "/{id}/item")
+	@Cacheable("item")
+	public ResponseEntity<Pecas> getItemById(@PathVariable long id) throws InterruptedException{
+		
+		//teste para verificação de funcionamento do cache
+		Thread.sleep(3000);
+		
+		Pecas peca = service.getItemById(id);
+		return ResponseEntity.status(HttpStatus.OK).body(peca);
+		
+	}
+	
+	
+}

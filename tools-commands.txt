@@ -112,6 +112,13 @@ maven:
 	./mvnw clean install
 	./mvnw deploy
 	./mvnw  install
+
+java:
+	java  [nome_do_arquivo.java]   	OBS** deve estar no nivel do arquivo.java
+	javac [nome_do_arquivo.java]	OBS** deve estar no nivel do arquivo.java
+	
+	spring_boot:
+			java -jar [nome_do_arquivo.jar]  OBS** deve estar no nivel do arquivo.java
 	
 expo: 
 	**use os comandos no CMD caso dê erro no git bash
