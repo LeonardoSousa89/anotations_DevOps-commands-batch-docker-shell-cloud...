@@ -88,6 +88,10 @@ Angular:
 
 	ng test
 	ng test --code-coverage
+	
+	ng add @angular/material
+	
+	ng build
 
 	ng g guard [nome-do-guard] *pesquisar os nome usados por convenção dos desenvolvedores
 
