@@ -8,7 +8,31 @@ node:
 	npm start
 	npm test
 	npm run [comando]
+	npm i {obs*: pegará as dependencias cadastradas no package.json}
+	npm i [nome-da-dependencia]	
+	npm run [comando] {obs*: pegará os comandos registrados no package.json}
 	node [arquivo.js]
+
+react-native:
+	npm i -g react-native
+	
+	react-native init [nome-do-app]
+	
+	emulator -list-avds
+	emulator -no-snapshot -avd [nome-do-dispositivo-virtual]
+	
+	adb devices 
+
+	react-native run-android
+	react-native run-ios
+
+	react-native link
+
+	npx react-native run-android
+	npx react-native info
+
+	expo:
+		
 
 Cypress:
 	npx cypress open
