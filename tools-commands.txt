@@ -13,6 +13,25 @@ node:
 	npm run [comando] {obs*: pegará os comandos registrados no package.json}
 	node [arquivo.js]
 
+babel:
+
+	OBS** para uso das especificações do ecma6 [import/export]
+	
+	npm i babel-cli
+	npm i babel-preset-es2015
+	
+	arquivo(s):
+		.babelrc:
+			{
+				"presets": ["es2015"]
+			}
+		
+		package.json:
+			EX: 
+				"nodemon --exec babel-node index.js"
+				"node --exec babel-node index.js" 
+	
+	
 react-native:
 	npm i -g react-native
 	
@@ -86,6 +105,7 @@ Angular:
 	
 	ng g m [nome-do-modulo]
 	
+	[instalação padrão]
 	ng g m [nome-do-modulo] --routing
 
 	ng test
