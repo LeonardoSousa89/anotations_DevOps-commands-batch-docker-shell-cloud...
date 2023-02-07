@@ -1,4 +1,7 @@
+//https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Promise
+
 const URL='https://www.devmedia.com.br/javascript-promise/41205'
+
 console.log(`FONTE: ${URL}`)
 
 console.log()
@@ -22,6 +25,52 @@ message('OK')
     })
     .catch(err=>console.log(err))
 
+console.log('______________________________________________________________________________________________________________________________')
+
+
+new Promise((resolveOuter) => {
+  resolveOuter(console.log('Hi, I am Promise method'));
+});
+
+console.log('______________________________________________________________________________________________________________________________')
+ 
+ const minhaPromise = new Promise((resolve, reject) => {
+
+    resolve(4);
+
+});
+
+
+minhaPromise
+  .then(response=>response*2)
+    .then(response=>response+2)
+      .then(response=>console.log(response))
+
+console.log('______________________________________________________________________________________________________________________________')
+ 
+function PipeLinePromise(args){
+        const minhaPromise=new Promise((resolve, reject) => {
+    
+        resolve(args);
+    
+    });
+    
+    minhaPromise
+      .then(resp=>resp*2)
+        .then(resp=>resp+1)
+            .then(resp=>{
+                
+                if(resp>=10){
+                    console.log(resp)
+                }else{
+                    console.log('less than 10')
+                }
+                
+            })
+  
+}
+
+PipeLinePromise(2)
 
 console.log('______________________________________________________________________________________________________________________________')
 	
@@ -814,54 +863,6 @@ register.push({user45})
 
 console.log(JSON.stringify(register))
 
-console.log('______________________________________________________________________________________________________________________________')
-
-//https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Promise
-
-new Promise((resolveOuter) => {
-  resolveOuter(console.log('Hi, I am Promise method'));
-});
-
-console.log('______________________________________________________________________________________________________________________________')
- 
- const minhaPromise = new Promise((resolve, reject) => {
-
-    resolve(4);
-
-});
-
-
-minhaPromise
-  .then(response=>response*2)
-    .then(response=>response+2)
-      .then(response=>console.log(response))
-
-console.log('______________________________________________________________________________________________________________________________')
- 
-function PipeLinePromise(args){
-        const minhaPromise=new Promise((resolve, reject) => {
-    
-        resolve(args);
-    
-    });
-    
-    minhaPromise
-      .then(resp=>resp*2)
-        .then(resp=>resp+1)
-            .then(resp=>{
-                
-                if(resp>=10){
-                    console.log(resp)
-                }else{
-                    console.log('less than 10')
-                }
-                
-            })
-  
-}
-
-PipeLinePromise(2)
-
 console.log('______________________________________________________________________________________________________________________________') 
  
  // https://diessi.ca/blog/encadeamento-de-metodos-em-javascript/
@@ -888,7 +889,6 @@ console.log('___________________________________________________________________
     }
      
  }
-
 
 const pipeLine=new Encadeamento(1)
 
