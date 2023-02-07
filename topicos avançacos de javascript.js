@@ -890,7 +890,7 @@ console.log('___________________________________________________________________
  }
 
 
-let pipeLine=new Encadeamento(1)
+const pipeLine=new Encadeamento(1)
 
 pipeLine.duplicacaoDeValor().somaDeValor().mostrarValor()
 
