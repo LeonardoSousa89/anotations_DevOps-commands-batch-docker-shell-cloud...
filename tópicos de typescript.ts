@@ -1,7 +1,7 @@
 //https://www.typescriptlang.org/docs/
 //https://www.youtube.com/watch?v=mRixno_uE2o&list=PLlAbYrWSYTiPanrzauGa7vMuve7_vnXG_
 //https://paiza.io/projects/ZCJ30jewpwFyTrciY6ZiCQ?language=typescript
-
+//https://www.tutorialsteacher.com/typescript/typescript-generic-interface
 
 
 let variable: number=0
@@ -138,6 +138,7 @@ console.log(buy)
 
 /*_________________________________________________________________________________________________________________________________*/
 
+//Arrays
 let arrayString: Array<string>
 arrayString=["letra", "palavra", "é uma string", "opa!!!"]
 
@@ -188,6 +189,34 @@ let arrayPalyers: Array<Players>
 arrayPalyers=[player1, player2, player3]
 
 console.log(arrayPalyers)
+
+/*_________________________________________________________________________________________________________________________________*/
+
+//Generic
+interface Client {
+    User: string,
+    password: number| string,
+    moment?: Date
+}
+
+
+let user1: Array<Client>=[ {User: 'Mandev', password:123456, moment: new Date()} ]
+let user2: Array<Client>=[ {User: 'Noah', password: 'asd545#'} ]
+
+console.log(user1, user2)
+
+/*_________________________________________________________________________________________________________________________________*/
+
+//Generic
+interface Person<T> {
+    User: T;
+    Password: T
+}
+
+let user1: Person<string> = { User:"Bishop", Password:"02asd1_*%4adsa" }
+let user2: Person<string> = { User:"Momnroe", Password:"1234" }
+
+console.log(user1, user2)
 
 /*_________________________________________________________________________________________________________________________________*/
 
@@ -257,14 +286,6 @@ const player3=new MMorpg('makoto gensai', 42, 4589, 404, 7, new Date(), false)
 console.log(player1.levelPlayerPoints().showMMorpgPlayer())
 console.log(player2.levelPlayerPoints().showMMorpgPlayer())
 console.log(player3.levelPlayerPoints().showMMorpgPlayer())
-
-/*_________________________________________________________________________________________________________________________________*/
-
-
-
-/*_________________________________________________________________________________________________________________________________*/
-
-
 
 /*_________________________________________________________________________________________________________________________________*/
 
