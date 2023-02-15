@@ -894,7 +894,45 @@ const pipeLine=new Encadeamento(1)
 
 pipeLine.duplicacaoDeValor().somaDeValor().mostrarValor()
 
+console.log('______________________________________________________________________________________________________________________________') 
 
+const media_aprovacao=8.0
+const media_recuperacao=6.0
+
+const media=[
+    { nome: 'joão', nota_av1: 7.3, bolsista: true },
+    { nome: 'joão', nota_av1: 9.2, bolsista: true },
+    { nome: 'joão', nota_av1: 9.8, bolsista: true },
+    { nome: 'joão', nota_av1: 8.7, bolsista: true },
+]
+
+const resultado=media.map(nota=>nota.nota_av1).reduce((acumulador, atual)=>{
+    
+    const acumador_notas=(acumulador + atual)
+    
+    return acumador_notas
+}) 
+
+
+function resultado_final(){
+    
+    const calculo_media=resultado/media.length
+    
+    if(calculo_media >= media_aprovacao){
+        
+        return 'Aprovado: ' + calculo_media
+        
+    }else if(calculo_media >= media_recuperacao && calculo_media < media_aprovacao){
+        
+         return 'Recuperação: ' + calculo_media  
+         
+    }else{
+        
+        return 'Aluno entre em contato com o setor de bolsistas com urgência! Reprovado: ' + calculo_media  
+    }
+}
+
+console.log(resultado_final())
 
  
  
