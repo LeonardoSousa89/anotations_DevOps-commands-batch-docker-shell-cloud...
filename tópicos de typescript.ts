@@ -289,6 +289,39 @@ console.log(player3.levelPlayerPoints().showMMorpgPlayer())
 
 /*_________________________________________________________________________________________________________________________________*/
 
+type Data={
+    id: number,
+    name: string,
+    city?: string,
+    country: string
+}
+
+let TABLE: Array<Data>=[
+    {id: 1, name: "Todd Mcfarlane", city: "Calgari", country: 'Canada'},
+    {id: 2, name: "Alan More", city: "", country: 'United Kingdom'},
+    {id: 3, name: "Jim lee", city: "New York", country: 'United States'},
+    {id: 4, name: "Frank Miller", city: "Texas", country: 'United States'},
+    {id: 5, name: "Katsuhiro otomo", city: "Myiagi", country: 'Japan'},
+    {id: 6, name: "Joe Quesada", city: "", country: 'United States'},
+    {id: 7, name: "David Gibbons", city: "", country: ''},
+    {id: 8, name: "Stan Lee", city: "New York", country: 'United States'},
+    {id: 9, name: "Steve Dikto", city: "New York", country: 'United States'},
+]
+
+console.table(TABLE)
+
+/*_________________________________________________________________________________________________________________________________*/
+
+
+
+
+/*_________________________________________________________________________________________________________________________________*/
+
+
+
+
+/*_________________________________________________________________________________________________________________________________*/
+
 //outros elementos destacados para pesquisa: Union, type alias
 
 
