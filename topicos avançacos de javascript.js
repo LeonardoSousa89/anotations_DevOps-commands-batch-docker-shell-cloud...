@@ -594,6 +594,79 @@ export default function App() {
 
 console.log('______________________________________________________________________________________________________________________________')
 
+import "./styles.css";
+
+const NovoElemento=(props)=><p>{props.algo}</p>
+
+export default function App(props) {
+
+  const boolean=null
+  const Element=boolean? <>Estado de verdade</> : <>Estado de mentira</>
+  const novoElemento=boolean ? <NovoElemento algo='verdade'/> : <NovoElemento algo='mentira, não'/>
+
+  return (
+    <div className="App">
+        <h1>{Element}</h1>
+
+        <div className="container" 
+            style={{ display: 'flex', 
+                     flexDirection: 'row',
+                     backgroundColor: 'rgba(0,0,0,0.4)',
+                     padding: '1vh',
+                     boxShadow: '0 0 32px red'
+                     }}>
+
+              <NovoElemento algo='diga a'/>
+              <h3>{novoElemento}</h3>
+        </div>
+
+    </div>
+  );
+}
+
+console.log('______________________________________________________________________________________________________________________________')
+
+import "./styles.css";
+
+const NovoElemento=(props)=><p>{props.algo}</p>
+
+//posso usar for, switch case, if else ...
+const MaisUmElemento=(props)=>{
+	
+  if(props.elemento === '0') return (<p>ponto 1</p>)
+  if(props.elemento === '1') return (<p>ponto 2</p>)
+}
+
+export default function App(props) {
+
+  const boolean=null
+  const Element=boolean? <>Estado de verdade</> : <>Estado de mentira</>
+  const novoElemento=boolean ? <NovoElemento algo='verdade'/> : <NovoElemento algo='mentira, não'/>
+
+  return (
+    <div className="App">
+        <h1>{Element}</h1>
+
+        <h2>
+          <MaisUmElemento elemento='1' />
+        </h2>
+
+        <div className="container" 
+            style={{ display: 'flex', 
+                     flexDirection: 'row',
+                     backgroundColor: 'rgba(0,0,0,0.4)',
+                     padding: '1vh',
+                     boxShadow: '0 0 32px red'
+                     }}>
+              <NovoElemento algo='diga a'/>
+              <h3>{novoElemento}</h3>
+        </div>
+
+    </div>
+  );
+}
+
+console.log('______________________________________________________________________________________________________________________________')
 data=[]
 
 
