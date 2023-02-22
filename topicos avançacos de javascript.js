@@ -633,8 +633,8 @@ const NovoElemento=(props)=><p>{props.algo}</p>
 //posso usar for, switch case, if else ...
 const MaisUmElemento=(props)=>{
 	
-  if(props.elemento === '0') return (<p>ponto 1</p>)
-  if(props.elemento === '1') return (<p>ponto 2</p>)
+  if(props.elemento === '0') return (<p>ponto 0</p>) //representa o estado de mentira (binário 0)
+  if(props.elemento === '1') return (<p>ponto 1</p>) //representa o estado de verdade (binário 1)
 }
 
 export default function App(props) {
