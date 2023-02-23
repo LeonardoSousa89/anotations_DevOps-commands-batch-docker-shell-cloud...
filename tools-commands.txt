@@ -115,8 +115,10 @@ Angular:
 	
 	ng build
 
-	ng g guard [nome-do-guard] *pesquisar os nome usados por convenção dos desenvolvedores
-
+	ng g guard [nome-do-guard] *pesquisar os nome usados por convenção dos desenvolvedores | por padrão este é canActivate
+	ng g guard [nome-do-guard] --implements CanActivateChild
+	ng g guard [nome-do-guard] --implements canActivate
+	
 Sass:
 	npm i -g node-sass
 	node-sass [arquivo.scss] [arquivo.css]
