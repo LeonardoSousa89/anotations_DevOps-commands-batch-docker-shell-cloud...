@@ -667,6 +667,139 @@ export default function App(props) {
 }
 
 console.log('______________________________________________________________________________________________________________________________')
+
+//comunicação entre components pai e filhos usando callback em props
+
+import { Component } from "react";
+
+import '../../App.css'
+import './header.css'
+
+import Carrinho from "../carrinho_de_compra/carrinho";
+
+import sacola from '../../assets/bolsa-de-compras.png'
+
+
+export default class Header extends Component{
+
+    state={
+        notificacao: '',
+        contador: 0
+    }
+
+    bemVindo(){
+        console.log('seja bem vindo')
+    }
+
+    addClique(){
+        let incremento=this.state.contador+=1
+        console.log(incremento)
+
+       this.verificaContador()
+    }
+
+    verificaContador(){
+        this.state.notificacao='item adicionado'
+        
+        const { notificacao }=this.state
+
+        if(this.state.contador > 0) alert(notificacao) 
+    }
+
+    render(){
+        return(
+            <header className="app-header">
+                            
+              <div>
+
+                <span className="app-header-title">
+                    <h2>Redux Carrinho</h2>
+                </span>
+
+                <span className="app-header-carrinho">
+                    
+                    <Carrinho src={sacola} 
+                              alt='sacola de compras' 
+                              addClique={this.addClique.bind(this)} 
+                    />
+
+                </span>
+              
+              </div>
+            </header>
+        )
+    }
+}
+
+console.log('______________________________________________________________________________________________________________________________')
+
+.app-header{
+    border: solid 1px red;
+    background-color: whitesmoke;
+    grid-area: component-header; 
+    height: 100%;
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.app-header div{
+
+  padding: 5px;
+
+  width: 80%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.app-header div>span{
+  width: 50%;
+}
+
+.app-header-title{
+  text-align: center;
+}
+
+.app-header-carrinho{
+  display: flex;
+  justify-content: end;
+}
+
+console.log('______________________________________________________________________________________________________________________________')
+
+import { Component } from "react";
+
+import './carrinho.css'
+
+export default class Carrinho extends Component{
+
+    render(){
+        return(
+            <main className="app-carrinho">
+
+                <img   src={this.props.src}
+                       alt={this.props.alt}
+                       onClick={this.props.addClique.bind(this)}
+                     />
+            </main>
+        )
+    }
+}
+
+console.log('______________________________________________________________________________________________________________________________')
+
+.app-carrinho img{
+    height: 40px;
+    width: 40px;
+    cursor: pointer;
+}
+
+
+//comunicação entre components pai e filhos usando callback em props
+
+console.log('______________________________________________________________________________________________________________________________')
 data=[]
 
 
